@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#11131b"><title>RETRO ARCADE｜8-Bit 懷舊遊戲音樂盒</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#10121a;--panel:#1b1e29;--panel2:#242938;--line:#343b4c;--gold:#f6c65b;--red:#e44b3f;--cyan:#63d7e8;--muted:#9ca6b8;--white:#f5f4ed}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#303447 0,#171a25 42%,#0d0f16 100%);color:var(--white);font-family:'Noto Sans TC',sans-serif;min-height:100vh}button,input{font:inherit}button{cursor:pointer}.topbar{height:64px;padding:0 max(18px,calc((100vw - 1440px)/2));display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #45404a;background:#141720eF;position:sticky;top:0;z-index:30;backdrop-filter:blur(12px)}.brand{display:flex;align-items:center;gap:12px}.brand-mark{width:10px;height:30px;background:var(--red);box-shadow:5px 0 0 #f6c65b}.brand h1{font:12px 'Press Start 2P';color:var(--gold);letter-spacing:.5px;margin:0}.brand small{font:12px 'Noto Sans TC';color:var(--muted);margin-left:8px}.status{font-size:12px;color:#c6d0df;display:flex;gap:9px;align-items:center}.led{width:8px;height:8px;border-radius:50%;background:#546070}.led.on{background:#67d58b;box-shadow:0 0 10px #67d58b}.layout{max-width:1440px;margin:auto;padding:22px;display:grid;grid-template-columns:minmax(0,1.65fr) minmax(330px,.9fr);gap:20px;align-items:start}.stage-column{min-width:0}.eyebrow{font:10px 'Press Start 2P';color:var(--gold);letter-spacing:1px;margin:0 0 12px}.screen-shell{padding:10px;border:1px solid #55586a;border-radius:18px;background:linear-gradient(145deg,#383b49,#171923 45%,#292c38);box-shadow:0 22px 55px #0008,inset 0 1px #ffffff30}.screen{position:relative;overflow:hidden;border-radius:9px;background:#05070c;aspect-ratio:16/10;box-shadow:inset 0 0 0 2px #000;isolation:isolate}.screen canvas{width:100%;height:100%;display:block;object-fit:contain;image-rendering:pixelated}.screen:after{content:"";position:absolute;inset:0;pointer-events:none;z-index:3;background:repeating-linear-gradient(to bottom,transparent 0 3px,#00000018 4px),radial-gradient(ellipse at center,transparent 58%,#0008 100%)}.screen-top{position:absolute;z-index:4;top:12px;left:13px;right:13px;display:flex;justify-content:space-between;align-items:flex-start;pointer-events:none}.game-label{background:#111827d9;border:1px solid #ffffff25;border-left:3px solid var(--gold);padding:8px 11px;border-radius:7px;max-width:80%;backdrop-filter:blur(8px)}.game-label strong{display:block;font-size:13px;color:var(--gold)}.game-label span{font-size:11px;color:#d0d7e4}.year{font:11px 'Press Start 2P';background:#111827d9;color:var(--cyan);padding:9px;border-radius:6px}.scene-tag{position:absolute;z-index:4;bottom:12px;left:14px;font-size:10px;letter-spacing:1.5px;color:#ffffffa8;text-shadow:0 1px 3px #000}.controls{display:flex;align-items:center;gap:9px;padding:13px 4px 4px;flex-wrap:wrap}.control-group{display:flex;align-items:center;gap:8px}.control{border:1px solid #41495b;background:#272d3b;color:#f5f4ed;border-radius:10px;min-width:42px;height:42px;padding:0 13px;font-size:17px;box-shadow:inset 0 -3px #0005}.control:active{transform:translateY(1px);box-shadow:inset 0 -1px #0005}.control.primary{background:var(--red);border-color:#ff7769;min-width:104px;font-size:13px;font-weight:900}.control.active{border-color:var(--gold);color:var(--gold)}.spacer{flex:1}.volume{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:12px}.volume input{width:105px;accent-color:var(--gold)}.visualizer{height:30px;width:100px;background:#090b10;border:1px solid #343b4c;border-radius:5px}.visualizer canvas{width:100%;height:100%}.now-playing{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding:13px 15px;border:1px solid var(--line);border-radius:12px;background:#171b26}.now-playing .caption{font-size:10px;color:var(--muted);letter-spacing:1px}.now-playing strong{font-size:14px;display:block;margin-top:3px}.now-playing .hint{font-size:11px;color:var(--muted)}.playlist{border:1px solid var(--line);border-radius:15px;background:#171a24;overflow:hidden;box-shadow:0 18px 45px #0005}.playlist-head{padding:17px 17px 13px;background:linear-gradient(135deg,#262b3a,#1b1e29);border-bottom:1px solid var(--line)}.playlist-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.playlist-title h2{font-size:14px;margin:0}.count{font:10px 'Press Start 2P';color:var(--gold)}.search{width:100%;height:40px;border-radius:8px;background:#10131c;border:1px solid #3a4253;color:white;padding:0 12px;outline:none;font-size:13px}.search:focus{border-color:var(--gold)}.filters{display:flex;gap:6px;overflow:auto;padding-top:11px;scrollbar-width:none}.filter{white-space:nowrap;border:1px solid #3a4253;background:#202533;color:#b8c1d0;padding:6px 10px;border-radius:99px;font-size:11px}.filter.selected{background:#4b3821;border-color:#9b783b;color:#ffda82}.playlist-items{max-height:690px;overflow:auto;padding:8px}.track{display:flex;align-items:center;gap:11px;padding:11px 10px;border:1px solid transparent;border-radius:9px;cursor:pointer;transition:.16s}.track:hover{background:#242a39}.track.selected{background:linear-gradient(90deg,#482a2a,#292431);border-color:#8b4843}.track-no{width:29px;height:29px;display:grid;place-items:center;background:#292f3e;color:#aeb8c8;border-radius:7px;font:10px 'Press Start 2P';flex:none}.track.selected .track-no{background:var(--red);color:white}.track-copy{min-width:0;flex:1}.track-copy strong{font-size:12px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.track-copy span{font-size:11px;color:var(--muted);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:3px}.track-year{font:10px 'Press Start 2P';color:#8b9db3}.track-play{color:var(--gold);font-size:12px}.empty{padding:25px;text-align:center;color:var(--muted);font-size:13px}.foot{max-width:1440px;margin:0 auto;padding:0 22px 24px;color:#788397;font-size:11px}.mobile-playbar{display:none}.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);background:#242b3a;border:1px solid #657086;color:white;padding:10px 16px;border-radius:8px;font-size:12px;opacity:0;transition:.2s;z-index:60;pointer-events:none}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:900px){.layout{grid-template-columns:minmax(0,1fr);max-width:760px;padding:16px}.playlist-items{max-height:440px}.topbar{height:58px}.brand small{display:none}}
+@media(max-width:560px){body{padding-bottom:78px}.topbar{padding:0 14px;height:54px}.brand h1{font-size:9px}.brand-mark{height:25px}.status{font-size:10px}.layout{padding:12px;gap:14px}.eyebrow{font-size:8px;margin-bottom:9px}.screen-shell{padding:5px;border-radius:12px}.screen{aspect-ratio:4/3}.screen-top{top:8px;left:8px;right:8px}.game-label{padding:6px 8px}.game-label strong{font-size:11px}.game-label span{font-size:9px}.year{font-size:8px;padding:7px}.scene-tag{bottom:8px;left:9px;font-size:8px}.controls{padding:10px 1px 2px;gap:7px}.control{height:43px;min-width:40px;padding:0 10px}.control.primary{min-width:84px}.visualizer{display:none}.spacer{display:none}.volume{margin-left:auto}.volume input{width:72px}.now-playing{margin-top:9px;padding:10px 12px}.now-playing strong{font-size:12px}.now-playing .hint{display:none}.playlist{border-radius:12px}.playlist-head{padding:14px 12px 11px}.playlist-title h2{font-size:13px}.playlist-items{max-height:none;padding:6px}.track{padding:10px 7px;gap:8px}.track-copy strong{font-size:11px}.track-copy span{font-size:10px}.track-year{font-size:8px}.foot{padding:0 14px 20px;font-size:10px}.mobile-playbar{display:flex;position:fixed;z-index:40;bottom:0;left:0;right:0;padding:9px 14px calc(9px + env(safe-area-inset-bottom));background:#141823f2;border-top:1px solid #3b4252;align-items:center;gap:10px;backdrop-filter:blur(14px)}.mobile-playbar .mini{min-width:0;flex:1}.mobile-playbar strong{font-size:11px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mobile-playbar span{font-size:10px;color:var(--muted)}.mobile-playbar button{border:0;border-radius:50%;width:42px;height:42px;background:var(--red);color:white;font-size:17px}.mobile-playbar .skip{background:#303748;width:36px;height:36px}}
+@media(orientation:landscape) and (max-height:520px) and (max-width:950px){.layout{grid-template-columns:minmax(0,1.35fr) minmax(260px,.8fr);max-width:none;padding:10px}.screen{aspect-ratio:16/9}.playlist-items{max-height:calc(100vh - 190px)}.mobile-playbar{display:none}body{padding-bottom:0}}
+</style></head>
+<body>
+<header class="topbar"><div class="brand"><i class="brand-mark"></i><h1>RETRO ARCADE <small>8-BIT 懷舊遊戲音樂盒</small></h1></div><div class="status"><span id="led" class="led"></span><span id="audio-status">READY / 待機中</span></div></header>
+<main class="layout"><section class="stage-column"><p class="eyebrow">PLAYER 01　/　NOW IN ARCADE</p><div class="screen-shell"><div class="screen" id="screen"><canvas id="game-canvas" width="640" height="400" aria-label="復古遊戲場景動畫"></canvas><div class="screen-top"><div class="game-label"><strong id="track-title">選擇一首遊戲音樂</strong><span id="track-subtitle">選擇曲目，進入熟悉的遊戲世界</span></div><span class="year" id="track-year">1985</span></div><div class="scene-tag" id="scene-tag">INSERT COIN　•　PRESS PLAY</div></div><div class="controls"><div class="control-group"><button class="control" id="btn-prev" aria-label="上一首">⏮</button><button class="control primary" id="btn-play"><span id="play-icon">▶</span> <span id="play-text">PLAY</span></button><button class="control" id="btn-next" aria-label="下一首">⏭</button><button class="control active" id="btn-loop" title="單曲循環">↻</button></div><div class="spacer"></div><div class="visualizer"><canvas id="visualizer-canvas" width="200" height="60"></canvas></div><label class="volume">🔊 <input id="volume-slider" type="range" min="0" max="1" step=".01" value=".7"><span id="volume-val">70%</span></label></div></div><div class="now-playing"><div><div class="caption">NOW PLAYING</div><strong id="now-playing-title">尚未播放</strong></div><span class="hint" id="play-state">點選右側曲目開始播放</span></div></section>
+<aside class="playlist"><div class="playlist-head"><div class="playlist-title"><h2>🎮 經典遊戲音樂清單</h2><span class="count">20 TRACKS</span></div><input class="search" id="search-input" type="search" placeholder="搜尋遊戲、曲名或年代…" autocomplete="off"><div class="filters" id="filters"><button class="filter selected" data-filter="all">全部曲目</button><button class="filter" data-filter="1980">80 年代</button><button class="filter" data-filter="1990">90 年代</button></div></div><div class="playlist-items" id="playlist-container"></div></aside></main>
+<footer class="foot">使用原始清單中的 20 首曲目與音符資料重新製作。此播放器以 Web Audio 合成 8-bit 音色，並非原版遊戲音源。</footer>
+<div class="mobile-playbar"><button class="skip" id="mobile-prev" aria-label="上一首">⏮</button><div class="mini"><strong id="mobile-title">尚未播放</strong><span id="mobile-subtitle">RETRO GAME MUSIC</span></div><button id="mobile-play" aria-label="播放或暫停">▶</button><button class="skip" id="mobile-next" aria-label="下一首">⏭</button></div><div class="toast" id="toast"></div>
+<script>
+const NOTE_FREQ = {
+            'C2': 65.41, 'C#2': 69.30, 'D2': 73.42, 'D#2': 77.78, 'E2': 82.41, 'F2': 87.31, 'F#2': 92.50, 'G2': 98.00, 'G#2': 103.83, 'A2': 110.00, 'A#2': 116.54, 'B2': 123.47,
+            'C3': 130.81, 'C#3': 138.59, 'D3': 146.83, 'D#3': 155.56, 'E3': 164.81, 'F3': 174.61, 'F#3': 185.00, 'G3': 196.00, 'G#3': 207.65, 'A3': 220.00, 'A#3': 233.08, 'B3': 246.94,
+            'C4': 261.63, 'C#4': 277.18, 'D4': 293.66, 'D#4': 311.13, 'E4': 329.63, 'F4': 349.23, 'F#4': 369.99, 'G4': 392.00, 'G#4': 415.30, 'A4': 440.00, 'A#4': 466.16, 'B4': 493.88,
+            'C5': 523.25, 'C#5': 554.37, 'D5': 587.33, 'D#5': 622.25, 'E5': 659.25, 'F5': 698.46, 'F#5': 739.99, 'G5': 783.99, 'G#5': 830.61, 'A5': 880.00, 'A#5': 932.33, 'B5': 987.77,
+            'C6': 1046.50, 'D6': 1174.66, 'E6': 1318.51, 'G6': 1567.98, 'SILENT': 0
+        };
+
+const SONGS = [
+            {
+                id: 1, title: "地上世界主題曲", game: "超級瑪利歐兄弟", year: "1985", tempo: 180, scene: "mario",
+                melody: ["E5","E5","SILENT","E5","SILENT","C5","E5","SILENT","G5","SILENT","SILENT","SILENT","G4","SILENT","SILENT","SILENT","C5","SILENT","SILENT","G4","SILENT","SILENT","E4","SILENT","SILENT","A4","SILENT","B4","SILENT","A#4","A4","SILENT","G4","E5","G5","A5","SILENT","F5","G5","SILENT","E5","SILENT","C5","D5","B4","SILENT","SILENT","SILENT"],
+                bass: ["D3","D3","SILENT","D3","SILENT","D3","D3","SILENT","G3","SILENT","SILENT","SILENT","G2","SILENT","SILENT","SILENT","G3","SILENT","SILENT","E3","SILENT","SILENT","C3","SILENT","SILENT","F3","SILENT","G3","SILENT","F#3","F3","SILENT","E3","C4","E4","F4","SILENT","D4","E4","SILENT","C4","SILENT","A3","B3","G3","SILENT","SILENT","SILENT"]
+            },
+            {
+                id: 2, title: "Korobeiniki 俄羅斯方塊", game: "俄羅斯方塊 (Tetris)", year: "1989", tempo: 150, scene: "tetris",
+                melody: ["E5","B4","C5","D5","C5","B4","A4","A4","C5","E5","D5","C5","B4","C5","D5","E5","C5","A4","A4","SILENT","D5","F5","A5","G5","F5","E5","C5","E5","D5","C5","B4","B4","C5","D5","E5","C5","A4","A4"],
+                bass: ["E3","G3","E3","G3","A3","C4","A3","C4","G#3","B3","G#3","B3","A3","C4","A3","C4","A3","C4","A3","C4","D3","F3","D3","F3","C3","E3","C3","E3","E3","G#3","E3","G#3","A3","C4","A3","C4"]
+            },
+            {
+                id: 3, title: "海拉魯大陸冒險主題曲", game: "薩爾達傳說", year: "1986", tempo: 140, scene: "zelda",
+                melody: ["A#4","SILENT","F4","SILENT","A#4","A#4","C5","D5","D#5","F5","SILENT","SILENT","F5","F5","F5","F#5","G#5","A#5","SILENT","A#5","A#5","G#5","F#5","G#5","F#5","F5","F5","D#5","F5","F5","D5","D#5","F5","D#5","D5","C5"],
+                bass: ["A#2","F3","A#3","F3","A#2","F3","A#3","F3","D#3","A#3","D#4","A#3","F3","C4","F4","C4","F#3","C#4","F#4","C#4","F3","C4","F4","C4","D#3","A#3","D#4","A#3","F3","A#3","C4","F4"]
+            },
+            {
+                id: 4, title: "威利博士關卡 1", game: "洛克人 2", year: "1988", tempo: 165, scene: "megaman",
+                melody: ["D4","F4","G4","G#4","A4","C5","D5","F5","E5","D5","C5","A4","C5","D5","A4","G4","D4","F4","G4","G#4","A4","C5","D5","F5","G5","F5","D5","F5","G5","A5","G5","F5"],
+                bass: ["D3","D3","D3","D3","A2","A2","A2","A2","A#2","A#2","A#2","A#2","C3","C3","C3","C3","D3","D3","D3","D3","A2","A2","A2","A2","A#2","A#2","A#2","A#2","C3","C3","C3","C3"]
+            },
+            {
+                id: 5, title: "密林戰場 (Jungle Theme)", game: "魂斗羅", year: "1988", tempo: 155, scene: "contra",
+                melody: ["C4","D#4","F4","F#4","G4","A#4","C5","D#5","D5","C5","A#4","G4","F4","D#4","D4","C4","C5","C5","A#4","C5","D#5","D5","C5","A#4","G4","A#4","C5","C5","SILENT","D#5","F5"],
+                bass: ["C2","C2","D#2","F2","C2","C2","A#1","C2","C2","C2","D#2","F2","C2","C2","G2","A#2","C2","C2","D#2","F2","C2","C2","A#1","C2","C2","C2","D#2","F2","C2","C2","G2","C3"]
+            },
+            {
+                id: 6, title: "迷宮追逐與開場曲", game: "小精靈 (Pac-Man)", year: "1980", tempo: 140, scene: "pacman",
+                melody: ["B4","B5","F#5","D#5","B5","F#5","D#5","C6","C5","G5","E5","C6","G5","E5","B4","B5","F#5","D#5","B5","F#5","D#5","D#5","E5","F5","F5","F#5","G5","G#5","A5","B5"],
+                bass: ["B2","F#3","B2","F#3","B2","F#3","B2","F#3","C3","G3","C3","G3","C3","G3","C3","G3","B2","F#3","B2","F#3","B2","F#3","B2","F#3","D#3","E3","F3","F#3","G3","G#3","A3","B3"]
+            },
+            {
+                id: 7, title: "街頭格鬥主題曲", game: "雙截龍", year: "1987", tempo: 150, scene: "doubledragon",
+                melody: ["A4","C5","D5","E5","D5","C5","A4","G4","A4","C5","D5","D#5","D5","C5","A4","SILENT","A4","C5","D5","E5","G5","E5","D5","C5","A4","C5","A4","G4","A4","SILENT","SILENT","SILENT"],
+                bass: ["A2","A2","C3","D3","A2","A2","G2","G2","A2","A2","C3","D#3","A2","A2","G2","G2","A2","A2","C3","D3","A2","A2","G2","G2","F2","F2","G2","G2","A2","A2","A2","A2"]
+            },
+            {
+                id: 8, title: "吸血鬼殺手 (Vampire Killer)", game: "惡魔城", year: "1986", tempo: 145, scene: "castlevania",
+                melody: ["A4","B4","C5","D5","E5","SILENT","C5","A4","B4","C5","D5","E5","F5","E5","D5","C5","B4","C5","D5","E5","F5","SILENT","D5","B4","C5","D5","E5","F5","G5","F5","E5","D5"],
+                bass: ["A2","E3","A3","E3","A2","E3","A3","E3","F2","C3","F3","C3","F2","C3","F3","C3","G2","D3","G3","D3","G2","D3","G3","D3","E2","B2","E3","B2","E2","B2","E3","B2"]
+            },
+            {
+                id: 9, title: "隆 (Ryu) 主場道館配樂", game: "快打旋風 II", year: "1991", tempo: 155, scene: "streetfighter",
+                melody: ["A4","A4","C5","D5","E5","D5","C5","A4","G4","A4","C5","A4","G4","E4","G4","A4","A4","A4","C5","D5","E5","G5","E5","D5","C5","D5","E5","D5","C5","A4","SILENT","SILENT"],
+                bass: ["A2","A2","E3","A2","A2","A2","E3","A2","C3","C3","G3","C3","G2","G2","D3","G2","A2","A2","E3","A2","A2","A2","E3","A2","F2","F2","C3","F2","G2","G2","D3","G2"]
+            },
+            {
+                id: 10, title: "水晶序曲 (Prelude)", game: "Final Fantasy", year: "1987", tempo: 165, scene: "finalfantasy",
+                melody: ["C4","D4","E4","G4","C5","D5","E5","G5","C6","G5","E5","D5","C5","G4","E4","D4","A3","C4","D4","E4","A4","C5","D5","E5","A5","E5","D5","C5","A4","E4","D4","C4"],
+                bass: ["C2","G2","C3","G2","C2","G2","C3","G2","C2","G2","C3","G2","C2","G2","C3","G2","A1","E2","A2","E2","A1","E2","A2","E2","A1","E2","A2","E2","A1","E2","A2","E2"]
+            },
+            {
+                id: 11, title: "開戰進行曲與戰場節奏", game: "坦克大戰 (Battle City)", year: "1985", tempo: 135, scene: "tank",
+                melody: ["G4","C5","G4","E4","G4","C5","G4","SILENT","A4","D5","A4","F4","A4","D5","A4","SILENT","B4","E5","B4","G4","B4","E5","B4","SILENT","C5","E5","G5","C6","SILENT","SILENT","SILENT","SILENT"],
+                bass: ["C3","C3","G2","C3","C3","C3","G2","C3","D3","D3","A2","D3","D3","D3","A2","D3","E3","E3","B2","E3","E3","E3","B2","E3","C3","G3","C4","E4","C4","G3","C3","SILENT"]
+            },
+            {
+                id: 12, title: "綠綠之地 (Green Greens)", game: "星之卡比", year: "1992", tempo: 170, scene: "kirby",
+                melody: ["C5","E5","G5","C6","B5","A5","G5","E5","F5","A5","C6","F6","E6","D6","C6","G5","C5","E5","G5","C6","B5","A5","G5","E5","D5","E5","F5","G5","A5","B5","C6","SILENT"],
+                bass: ["C3","G3","C4","G3","C3","G3","C4","G3","F3","C4","F4","C4","C3","G3","C4","G3","C3","G3","C4","G3","C3","G3","C4","G3","G2","D3","G3","D3","C3","G3","C4","SILENT"]
+            },
+            {
+                id: 13, title: "高橋名人叢林奔跑曲", game: "冒險島", year: "1986", tempo: 175, scene: "adventure",
+                melody: ["C5","E5","G5","C6","G5","E5","C5","G4","A4","C5","E5","A5","E5","C5","A4","E4","F4","A4","C5","F5","C5","A4","F4","C4","G4","B4","D5","G5","D5","B4","G4","D4"],
+                bass: ["C3","C3","E3","G3","C3","C3","E3","G3","A2","A2","C3","E3","A2","A2","C3","E3","F2","F2","A2","C3","F2","F2","A2","C3","G2","G2","B2","D3","G2","G2","B2","D3"]
+            },
+            {
+                id: 14, title: "鮮血之月 (Unbreakable)", game: "忍者龍劍傳", year: "1988", tempo: 160, scene: "ninja",
+                melody: ["F#4","A4","B4","C#5","B4","A4","F#4","E4","F#4","A4","B4","D5","C#5","B4","F#4","SILENT","F#4","A4","B4","C#5","E5","C#5","B4","A4","F#4","A4","F#4","E4","F#4","SILENT","SILENT","SILENT"],
+                bass: ["F#2","F#2","A2","B2","F#2","F#2","E2","E2","F#2","F#2","A2","D3","F#2","F#2","E2","E2","F#2","F#2","A2","B2","F#2","F#2","E2","E2","D2","D2","E2","E2","F#2","F#2","F#2","F#2"]
+            },
+            {
+                id: 15, title: "鐵架工地攀爬曲", game: "大金剛 (Donkey Kong)", year: "1981", tempo: 135, scene: "donkeykong",
+                melody: ["C4","E4","G4","C5","B4","G4","E4","C4","C#4","F4","G#4","C#5","C5","G#4","F4","C#4","D4","F#4","A4","D5","C#5","A4","F#4","D4","G4","B4","D5","G5","SILENT","SILENT","SILENT","SILENT"],
+                bass: ["C2","C2","E2","G2","C2","C2","E2","G2","C#2","C#2","F2","G#2","C#2","C#2","F2","G#2","D2","D2","F#2","A2","D2","D2","F#2","A2","G2","G2","B2","D3","G2","G2","B2","D3"]
+            },
+            {
+                id: 16, title: "外星艦隊逼近進行曲", game: "太空侵略者", year: "1978", tempo: 115, scene: "invaders",
+                melody: ["A3","SILENT","G3","SILENT","F3","SILENT","E3","SILENT","A3","SILENT","G3","SILENT","F3","SILENT","E3","SILENT"],
+                bass: ["A1","SILENT","G1","SILENT","F1","SILENT","E1","SILENT","A1","SILENT","G1","SILENT","F1","SILENT","E1","SILENT"]
+            },
+            {
+                id: 17, title: "碧綠山丘 (Green Hill)", game: "音速小子 (Sonic)", year: "1991", tempo: 160, scene: "sonic",
+                melody: ["C5","B4","C5","D5","E5","G5","F5","E5","D5","C5","B4","A4","B4","C5","D5","SILENT","E5","D5","E5","F5","G5","B5","A5","G5","F5","E5","D5","C5","D5","E5","C5","SILENT"],
+                bass: ["C3","G3","C4","G3","A2","E3","A3","E3","F2","C3","F3","C3","G2","D3","G3","D3","C3","G3","C4","G3","A2","E3","A3","E3","F2","C3","F3","C3","G2","D3","G3","D3"]
+            },
+            {
+                id: 18, title: "真新鎮與對戰進行曲", game: "精靈寶可夢 (Pokémon)", year: "1996", tempo: 150, scene: "pokemon",
+                melody: ["G4","C5","G4","E4","A4","F4","D4","B4","C5","E5","G5","C6","G5","E5","C5","SILENT","D5","F5","A5","D6","B5","G5","D5","B4","C5","E5","G5","C6","SILENT","SILENT","SILENT","SILENT"],
+                bass: ["C3","C3","G3","C3","F2","F2","C3","F2","C3","C3","G3","C3","C3","C3","G3","C3","D3","D3","A3","D3","G2","G2","D3","G2","C3","C3","G3","C3","C3","C3","G3","SILENT"]
+            },
+            {
+                id: 19, title: "迷宮爆破進行曲", game: "炸彈超人 (Bomberman)", year: "1985", tempo: 160, scene: "bomberman",
+                melody: ["C5","C5","E5","C5","G5","G5","E5","G5","A5","A5","F5","A5","G5","E5","C5","SILENT","D5","D5","F5","D5","G5","G5","F5","D5","C5","E5","G5","C6","SILENT","SILENT","SILENT","SILENT"],
+                bass: ["C3","G3","C3","G3","C3","G3","C3","G3","F2","C3","F2","C3","C3","G3","C3","G3","G2","D3","G2","D3","G2","D3","G2","D3","C3","G3","C4","E4","C3","G3","C3","SILENT"]
+            },
+            {
+                id: 20, title: "熱血運動會激昂進行曲", game: "熱血硬派 / 熱血進行曲", year: "1990", tempo: 170, scene: "nekketsu",
+                melody: ["A4","A4","C5","A4","E5","E5","D5","C5","B4","B4","D5","B4","E5","SILENT","D5","C5","A4","A4","C5","A4","E5","E5","F5","E5","D5","C5","B4","C5","A4","SILENT","SILENT","SILENT"],
+                bass: ["A2","A2","E3","A2","A2","A2","E3","A2","E2","E2","B2","E2","E2","E2","B2","E2","A2","A2","E3","A2","A2","A2","E3","A2","D2","D2","E2","E2","A2","A2","A2","SILENT"]
+            }
+        ];
+
+class ChiptuneAudioEngine {
+            constructor() {
+                this.ctx = null;
+                this.masterGain = null;
+                this.analyser = null;
+                this.isPlaying = false;
+                this.currentSongIndex = 0;
+                this.currentStep = 0;
+                this.timerId = null;
+                this.isLooping = true;
+                this.isMuted = false;
+                this.volumeBeforeMute = 0.7;
+            }
+
+            init() {
+                if (!this.ctx) {
+                    const AudioContext = window.AudioContext || window.webkitAudioContext;
+                    this.ctx = new AudioContext();
+                    
+                    this.masterGain = this.ctx.createGain();
+                    this.masterGain.gain.value = 0.7;
+
+                    this.analyser = this.ctx.createAnalyser();
+                    this.analyser.fftSize = 64;
+
+                    this.masterGain.connect(this.analyser);
+                    this.analyser.connect(this.ctx.destination);
+                }
+                if (this.ctx.state === 'suspended') {
+                    this.ctx.resume();
+                }
+            }
+
+            playSong(index) {
+                this.init();
+                this.stop();
+                this.currentSongIndex = index;
+                this.currentStep = 0;
+                this.isPlaying = true;
+
+                const song = SONGS[this.currentSongIndex];
+                const stepDurationMs = (60 / song.tempo / 4) * 1000;
+
+                this.timerId = setInterval(() => {
+                    this.tick();
+                }, stepDurationMs);
+
+                updateUIState();
+            }
+
+            stop() {
+                if (this.timerId) {
+                    clearInterval(this.timerId);
+                    this.timerId = null;
+                }
+                this.isPlaying = false;
+                updateUIState();
+            }
+
+            setVolume(val) {
+                if (this.masterGain) {
+                    this.masterGain.gain.value = parseFloat(val);
+                }
+            }
+
+            toggleMute() {
+                if (!this.masterGain) return;
+                if (this.isMuted) {
+                    this.setVolume(this.volumeBeforeMute);
+                    this.isMuted = false;
+                } else {
+                    this.volumeBeforeMute = this.masterGain.gain.value;
+                    this.setVolume(0);
+                    this.isMuted = true;
+                }
+                return this.isMuted;
+            }
+
+            // Pulse Channel (SQ1 / SQ2)
+            playSquare(freq, duration, type = 'square') {
+                if (!freq || freq <= 0 || this.isMuted) return;
+                try {
+                    const osc = this.ctx.createOscillator();
+                    const gain = this.ctx.createGain();
+                    osc.type = type;
+                    osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
+                    gain.gain.setValueAtTime(0.12, this.ctx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + duration);
+                    osc.connect(gain);
+                    gain.connect(this.masterGain);
+                    osc.start();
+                    osc.stop(this.ctx.currentTime + duration);
+                } catch(e){}
+            }
+
+            // Triangle Bass Channel
+            playTriangle(freq, duration) {
+                if (!freq || freq <= 0 || this.isMuted) return;
+                try {
+                    const osc = this.ctx.createOscillator();
+                    const gain = this.ctx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
+                    gain.gain.setValueAtTime(0.2, this.ctx.currentTime);
+                    gain.gain.linearRampToValueAtTime(0.001, this.ctx.currentTime + duration);
+                    osc.connect(gain);
+                    gain.connect(this.masterGain);
+                    osc.start();
+                    osc.stop(this.ctx.currentTime + duration);
+                } catch(e){}
+            }
+
+            // Noise Channel
+            playNoise(duration) {
+                if (this.isMuted) return;
+                try {
+                    const bufferSize = this.ctx.sampleRate * duration;
+                    const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
+                    const output = buffer.getChannelData(0);
+                    for (let i = 0; i < bufferSize; i++) {
+                        output[i] = Math.random() * 2 - 1;
+                    }
+                    const whiteNoise = this.ctx.createBufferSource();
+                    whiteNoise.buffer = buffer;
+                    const gain = this.ctx.createGain();
+                    gain.gain.setValueAtTime(0.08, this.ctx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.005, this.ctx.currentTime + duration);
+                    whiteNoise.connect(gain);
+                    gain.connect(this.masterGain);
+                    whiteNoise.start();
+                } catch(e){}
+            }
+
+            tick() {
+                const song = SONGS[this.currentSongIndex];
+                const noteDuration = 60 / song.tempo / 4;
+
+                // Pulse 1
+                const melNote = song.melody[this.currentStep % song.melody.length];
+                if (melNote && melNote !== 'SILENT') {
+                    this.playSquare(NOTE_FREQ[melNote], noteDuration, 'square');
+                    this.triggerChannelVisual('sq1');
+                }
+
+                // Triangle Bass
+                const bassNote = song.bass[this.currentStep % song.bass.length];
+                if (bassNote && bassNote !== 'SILENT') {
+                    this.playTriangle(NOTE_FREQ[bassNote], noteDuration * 1.1);
+                    this.triggerChannelVisual('tri');
+                }
+
+                // Noise Drum
+                if (this.currentStep % 2 === 0) {
+                    this.playNoise(0.03);
+                    this.triggerChannelVisual('noi');
+                }
+
+                this.currentStep++;
+
+                const totalLen = Math.max(song.melody.length, song.bass.length);
+                if (this.currentStep >= totalLen) {
+                    if (this.isLooping) {
+                        this.currentStep = 0;
+                    } else {
+                        this.next();
+                    }
+                }
+            }
+
+            triggerChannelVisual(ch) {
+                const el = document.getElementById(`ch-${ch}`);
+                if (el) {
+                    el.classList.add('channel-active');
+                    setTimeout(() => el.classList.remove('channel-active'), 80);
+                }
+            }
+
+            next() {
+                const nextIdx = (this.currentSongIndex + 1) % SONGS.length;
+                this.playSong(nextIdx);
+            }
+
+            prev() {
+                const prevIdx = (this.currentSongIndex - 1 + SONGS.length) % SONGS.length;
+                this.playSong(prevIdx);
+            }
+        }
+
+        const synth = new ChiptuneAudioEngine();
+// ===== Pixel-art scene engine: bespoke composition for all 20 games =====
+const canvas=document.getElementById('game-canvas'),ctx=canvas.getContext('2d');ctx.imageSmoothingEnabled=false;
+let frame=0,sceneChangedAt=0,particles=[];const W=640,H=400;
+const rect=(x,y,w,h,c)=>{ctx.fillStyle=c;ctx.fillRect(Math.round(x),Math.round(y),Math.round(w),Math.round(h))};
+const box=(x,y,w,h,c)=>{rect(x,y,w,h,c);rect(x,y,w,3,'#ffffff20')};
+const text=(s,x,y,size=12,color='#fff',align='left')=>{ctx.fillStyle=color;ctx.font=`bold ${size}px monospace`;ctx.textAlign=align;ctx.fillText(s,x,y);ctx.textAlign='left'};
+const cloud=(x,y,s=1)=>{rect(x,y,48*s,14*s,'#fff');rect(x+10*s,y-10*s,28*s,22*s,'#fff');rect(x+34*s,y+3*s,25*s,11*s,'#fff')};
+const star=(x,y,r=2,c='#fff')=>{rect(x-r,y-r,r*2,r*2,c)};
+function pixelPerson(x,y,palette,pose=0,scale=1){const [skin,shirt,pants,shoe,hair]=palette;let s=scale;rect(x+5*s,y,8*s,7*s,hair);rect(x+4*s,y+6*s,10*s,9*s,skin);rect(x+2*s,y+14*s,14*s,13*s,shirt);rect(x+4*s,y+26*s,5*s,10*s,pants);rect(x+11*s,y+26*s,5*s,10*s,pants);rect(x+2*s,y+35*s,7*s,4*s,shoe);rect(x+11*s,y+35*s,7*s,4*s,shoe);rect(x+14*s,y+17*s,7*s,4*s,skin);if(pose){rect(x+18*s,y+13*s,10*s,3*s,skin);rect(x+25*s,y+12*s,8*s,3*s,'#f8e6a0')}}
+// Original-style, hand-authored character sprites: each hero has a distinct silhouette,
+// costume, palette and signature equipment instead of the former shared stick-figure template.
+const HERO_PIXELS={
+ mario:{scale:5,p:{R:'#e52d27',r:'#9e211d',S:'#f3b58a',s:'#7b3928',B:'#1760b5',b:'#103d80',Y:'#f6c84b',W:'#fff0d7',K:'#28202a'},rows:[
+ '....YYYYYYYY....','...YYYYYYYYYY...','...RRRRRRRRRR...','..RRRRRRRRRRRR..','..SSSSSSSSSS....','..SSKKSSSSSS....','..SSSSSSSSSS....','...RRRRRRRR.....','..RRRRRRRRRR....','..RRRWWRRRRR....','..BBBBBBBBBB....','..BBYBBBBYBB....','..BBBBBBBBBB....','...BB....BB.....','...BB....BB.....','..KKK....KKK....']},
+ zelda:{scale:5,p:{G:'#2b9b45',g:'#176332',S:'#edbd91',H:'#d9b46c',B:'#d9e5d6',b:'#8b9c9d',Y:'#d6b13e',K:'#302b2b'},rows:[
+ '......GGGGGG....','....GGGGGGGGGG..','..GGGGGGGGGGGG..','....GGGGGGGG....','......HHHH......','.....SSSSSS.....','.....SKKSSS.....','.....SSSSSS.....','....GGGGGGGG....','...GGGGGGGGGG...','...GGGBBGGGG....','....GGGBBG.......','....YYYYYY.......','...YY....YY......','...KK....KK......','..KKK....KKK.....']},
+ mega:{scale:5,p:{B:'#176bd2',b:'#103d91',C:'#46c9f4',c:'#8ceaff',S:'#efb58d',K:'#15223a',W:'#e8f2f8'},rows:[
+ '.....BBBBBB.....','...BBBBBBBBBB...','..BBBBBBBBBBBB..','..BBCCCCCCBBBB..','..BBCCCCCCBBBB..','...BBSSSSBBBB...','...BBSSKSSBBB...','...BBSSSSBBBB...','....BBBBBBBB....','...BBBBBBBBBB...','..BBBBBBBBBBBB..','..BBCCBBBBCCBB..','..BBBBBBBBBBBB..','...BBB....BBB...','...BBB....BBB...','..KKKK....KKKK..']},
+ contra:{scale:5,p:{S:'#d7a17b',H:'#743c26',G:'#63764b',g:'#34452e',R:'#a53d2d',B:'#b8b6a5',K:'#262a2a',Y:'#d7bd75'},rows:[
+ '....HHHHHH......','...HHHHHHHH.....','...SSSSSSSS......','...SSKSSSSS......','....SSSSSS.......','..GGGGGGGGGG.....','..GGRGGGGGGG.....','...GGGGGGGGGG....','....GGGGGGGGG....','...GGGGGGGGGG....','..GGGGGGGGGGG....','..GGGG....GGG....','..GGGG....GGG....','..KKKK....KKKK...','..KKKK....KKKK...','..KKKK....KKKK...']},
+ ryu:{scale:5,p:{S:'#e8b58d',H:'#26242a',W:'#f1eee4',R:'#c83931',r:'#8f2827',B:'#d9d7ca',K:'#29242a'},rows:[
+ '.....HHHHHH......','....HHHHHHHH.....','.....SSSSSS.......','.....SSKSSS.......','.....SSSSSS.......','...WWWWWWWWWW....','..WWWWWWWWWWWW...','...WWWWWWWWWW....','....RRRRRRRR.....','....RRRRRRRR.....','....RRRRRRRR.....','....RR....RR.....','....RR....RR.....','...KKK....KKK....','...KKK....KKK....','..KKKK....KKKK...']},
+ sonic:{scale:5,p:{B:'#1766d5',b:'#103e9b',S:'#f2c39b',T:'#e9b28d',W:'#fff',R:'#c83230',Y:'#f5d54a',K:'#17243d'},rows:[
+ '........BB.......','.......BBBB......','......BBBBBB.....','..BBBBBBBBBBB....','BBBBBBBBBBBBBB...','BBBBBBBBBBBBBBB..','BBBBBBBBBBBBBB...','..BBBBBBBBBBB.....','...BBSSSSSS.......','...BSSKSSSS.......','...SSSSSSSS.......','....SSSSSS........','...RR....RR.......','..WW......WW......','..WW......WW......','..WW......WW......']},
+ kirby:{scale:5,p:{P:'#f58eb8',p:'#d95e8d',S:'#f9b5ca',W:'#fff',K:'#29324d',R:'#c84663'},rows:[
+ '.....PPPPPP.......','...PPPPPPPPPP.....','..PPPPPPPPPPPP....','.PPPPPPPPPPPPPP...','.PPPPPPPPPPPPPP...','PPPPPPPPPPPPPPPP..','PPPKPPPPPPPKPPPP..','PPPKPPPPPPPKPPPP..','PPPPPPPPPPPPPPPP..','PPPPPPPPPPPPPPPP..','.PPPPPPPPPPPPPP...','..PPPPPPPPPPPP....','...RRPPPPPPPP.....','...RR....RR.......','..RRR....RRR......']},
+ pikachu:{scale:5,p:{Y:'#f4d13d',y:'#d9a927',R:'#e85a52',K:'#292b38',W:'#fff4d7',B:'#8b633f'},rows:[
+ '.....YY....YY.....','....YYYY..YYYY....','....YYYYYYYYYY....','...YYYYYYYYYYYY...','..YYYYYYYYYYYYYY..','..YYKYYYYYYYKYYY..','..YYYYYYYYYYYYYY..','..YYYYYYYYYYYYYY..','...YYRYYYYYYRYY...','....YYYYYYYYYY....','...YYYYYYYYYYYY...','..YYYYYYYYYYYYYY..','..YY....YY....YY..','..BB....BB....BB..']},
+ bomber:{scale:5,p:{W:'#f7f4e9',w:'#d6d8d1',R:'#d92f36',r:'#9f2029',B:'#263a8c',K:'#252b35'},rows:[
+ '......WWWW.......','.....WWWWWW......','....WWWWWWWW.....','....WWKKWWWW.....','....WWWWWWWW.....','.....WWWWWW......','....RRRRRRRR.....','...RRRRRRRRRR....','...RRRRRRRRRR....','....RRRRRRRR.....','....BBBBBBBB.....','...BBBBBBBBBB....','...BB......BB....','...BB......BB....','..KKK......KKK...']}
+};
+function drawHero(name,x,y,scale=1,flip=false){const d=HERO_PIXELS[name];if(!d)return;const cell=d.scale*scale;ctx.save();if(flip){ctx.translate(x*2+ d.rows[0].length*cell,0);ctx.scale(-1,1);x=0;}for(let r=0;r<d.rows.length;r++){const row=d.rows[r];for(let c=0;c<row.length;c++){const color=d.p[row[c]];if(color)rect(x+c*cell,y+r*cell,cell,cell,color)}}ctx.restore();}
+function drawWhip(x,y){ctx.strokeStyle='#d8c8a0';ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(x,y);ctx.quadraticCurveTo(x+42,y-48+Math.sin(frame*.08)*15,x+95,y-18);ctx.stroke();}
+
+function drawMario(){rect(0,0,W,H,'#5c94fc');cloud((frame*.35)%760-80,75,1.1);cloud(390-(frame*.2)%700,125,.75);rect(0,320,W,80,'#c87932');rect(0,320,W,12,'#58b82c');for(let x=0;x<W;x+=32){rect(x,334,30,30,'#a85b28');rect(x+3,337,24,24,'#c77a35')}for(let x=75;x<620;x+=160){box(x,210,34,34,'#d9822e');text('?',x+11,234,22,'#fff1a0')}box(480,260,68,60,'#138a30');box(474,252,80,14,'#20bf45');rect(80,278,34,42,'#a85a26');rect(86,284,8,8,'#fff');drawHero('mario',205,218-Math.abs(Math.sin(frame*.06))*75,1);const gx=370-(frame*1.3)%440;rect(gx,294,26,25,'#a94e20');rect(gx+4,286,18,13,'#c77837');rect(gx+6,295,4,4,'#fff');rect(gx+17,295,4,4,'#fff');}
+function drawTetris(){rect(0,0,W,H,'#11182b');for(let i=0;i<80;i++)star((i*83)%W,(i*47)%H,1,'#253653');rect(190,25,260,350,'#050914');ctx.strokeStyle='#7185a8';ctx.lineWidth=4;ctx.strokeRect(190,25,260,350);for(let y=35;y<365;y+=26)for(let x=200;x<440;x+=26){ctx.strokeStyle='#25334c';ctx.strokeRect(x,y,24,24)}const colors=['#e94d5a','#55c5ed','#f5ca4e','#65d58a','#bd83ec'];for(let r=0;r<5;r++)for(let c=0;c<9;c++)if((r*3+c*5)%7<4)box(202+c*26,337-r*26,24,24,colors[(r+c)%5]);const y=38+(frame*1.5)%245,x=270+Math.sin(frame*.025)*65;[[0,0],[1,0],[2,0],[1,1]].forEach(([a,b])=>box(x+a*26,y+b*26,24,24,'#b45de5'));text('NEXT',485,65,13,'#b7c6e3');[[0,0],[1,0],[1,1],[2,1]].forEach(([a,b])=>box(490+a*18,85+b*18,16,16,'#57c9e7'));}
+function drawZelda(){rect(0,0,W,H,'#275d35');for(let y=0;y<H;y+=48)for(let x=0;x<W;x+=48){rect(x+2,y+3,42,40,(x+y)%96?'#367d3d':'#31733a');star(x+12+(y%17),y+18,2,'#79b94b')}for(let [x,y] of [[20,20],[535,30],[25,300],[550,290],[420,15]]){rect(x,y,58,52,'#18502d');rect(x+8,y-8,42,22,'#2c8c42');rect(x+22,y+45,14,14,'#704a2a')}rect(260,0,100,400,'#c4a76a');rect(0,160,640,80,'#c4a76a');rect(270,170,80,60,'#3976a9');drawHero('zelda',282+Math.sin(frame*.025)*38,151,1);rect(340,184,24,8,'#cbd8e8');rect(357,180,24,4,'#e6eaf2');rect(170,190,25,20,'#d74b3e');}
+function drawMega(){rect(0,0,W,H,'#111b3b');for(let x=0;x<W;x+=80){rect(x,0,5,H,'#24375c');for(let y=30;y<350;y+=80)box(x+8,y,58,42,'#1d3155')}rect(0,340,W,60,'#56627a');for(let x=0;x<W;x+=40)rect(x,340,35,6,'#a7b5c9');drawHero('mega',165,252,1);rect(220,295,30,10,'#4dd5ff');const bx=260+(frame*7)%430;ctx.fillStyle='#ffdb56';ctx.beginPath();ctx.arc(bx,300,9,0,Math.PI*2);ctx.fill();rect(490,292,42,48,'#d6a44c');rect(496,282,30,15,'#e8c36b');rect(500,302,6,6,'#1b2434');}
+function drawContra(){rect(0,0,W,H,'#203b2c');for(let x=-30;x<W;x+=105){rect(x+10,80,22,250,'#573d2a');rect(x-20,65,85,24,'#236d37');rect(x-5,35,65,30,'#31874a');}rect(0,325,W,75,'#4b4935');for(let x=0;x<W;x+=40)rect(x,325,32,5,'#b0a16a');for(let i=0;i<6;i++){const x=(i*127-frame*.65+800)%760-60;rect(x,285,5,42,'#d2bd7d');rect(x-12,300,28,8,'#657e48')}drawHero('contra',145,246,1);rect(183,290,45,7,'#5c6570');for(let j=0;j<3;j++){const bx=(230+frame*8+j*45)%650;rect(bx,298-j*8,15,4,'#fff0a0')}if(frame%100<10){rect(480,260,45,45,'#e65a29');rect(490,245,26,70,'#ffcf56')}}
+function drawPac(){rect(0,0,W,H,'#02040d');ctx.strokeStyle='#225bfa';ctx.lineWidth=8;ctx.strokeRect(35,35,570,320);for(let x=55;x<590;x+=28)for(let y=55;y<340;y+=28)if((x*3+y*7)%5!==0)star(x,y,2,'#f7d77a');rect(275,145,90,14,'#02040d');const px=90+(frame*2.2)%460;ctx.fillStyle='#ffeb32';ctx.beginPath();ctx.moveTo(px,210);ctx.arc(px,210,24,.22*Math.PI,1.78*Math.PI);ctx.closePath();ctx.fill();['#f34c67','#f3a6e8','#4bd9ed','#f5a94a'].forEach((c,i)=>{let x=px-75-i*27;rect(x,190,24,26,c);rect(x+4,182,16,12,c);rect(x+5,195,5,7,'#fff');rect(x+16,195,5,7,'#fff');});}
+function drawFighter(){rect(0,0,W,H,'#d5a06b');rect(0,0,W,245,'#e9c28d');rect(0,245,W,155,'#72523e');for(let x=0;x<W;x+=64){rect(x,90,5,155,'#875b3c');rect(x+8,100,42,7,'#a8754c')}rect(0,330,W,70,'#463a38');for(let x=0;x<W;x+=50)rect(x,330,38,4,'#b18b65');pixelPerson(170,245,['#efc49e','#eee8dd','#e8e8e8','#bd322a','#e7e1dc'],1,2);pixelPerson(420,245,['#dba77d','#eac03e','#294b9b','#29375c','#38251c'],0,2);let hx=245+(frame*5)%180;ctx.fillStyle='#4dc9ff';ctx.beginPath();ctx.arc(hx,286,20+Math.sin(frame*.2)*4,0,Math.PI*2);ctx.fill();ctx.fillStyle='#e9fbff';ctx.beginPath();ctx.arc(hx,286,10,0,Math.PI*2);ctx.fill();}
+function drawCastlevania(){rect(0,0,W,H,'#11101e');rect(0,300,W,100,'#292333');ctx.fillStyle='#9d263d';ctx.beginPath();ctx.arc(500,90,48,0,Math.PI*2);ctx.fill();for(let x=20;x<640;x+=110){rect(x,70,55,240,'#343247');rect(x+12,40,30,45,'#4c4962');rect(x+20,130,22,45,'#11101e')}rect(0,320,W,12,'#51465a');drawHero('zelda',168,238,.9);drawWhip(213,278);ctx.strokeStyle='#d9d0ae';ctx.lineWidth=5;ctx.beginPath();ctx.moveTo(210,285);ctx.quadraticCurveTo(300,210+Math.sin(frame*.1)*35,380,275);ctx.stroke();let bx=(600-frame*2)%700;rect(bx,170+Math.sin(frame*.1)*20,26,12,'#8f4265');rect(bx-9,164,14,7,'#8f4265');rect(bx+19,164,14,7,'#8f4265');}
+function drawFinalFantasy(){rect(0,0,W,H,'#071126');for(let i=0;i<70;i++)star(i*97%W,i*53%H,1,'#a9c9ed');ctx.save();ctx.translate(320,145);ctx.rotate(frame*.015);ctx.fillStyle='#54d8f3';ctx.beginPath();ctx.moveTo(0,-65);ctx.lineTo(35,0);ctx.lineTo(0,65);ctx.lineTo(-35,0);ctx.closePath();ctx.fill();ctx.strokeStyle='#d9fbff';ctx.lineWidth=4;ctx.stroke();ctx.restore();rect(0,320,W,80,'#17263c');pixelPerson(155,260,['#e2b58e','#292e73','#171c42','#222','#17152e'],0,1.8);pixelPerson(430,260,['#d9a27d','#9a303d','#343d69','#1e263a','#6b332d'],1,1.8);text('CRYSTAL',320,365,14,'#8de7ff','center');}
+function drawTank(){rect(0,0,W,H,'#111a18');for(let y=0;y<H;y+=24)for(let x=0;x<W;x+=24)if((x+y)%72===0)box(x,y,22,22,'#a24a35');rect(0,360,W,40,'#1c3429');for(let x=0;x<W;x+=48)rect(x,360,44,5,'#507451');for(let x of [80,490]){rect(x,100,40,100,'#b45c42');rect(x+4,110,32,14,'#db8260')}const ty=230+Math.sin(frame*.06)*38;rect(285,ty,58,48,'#e9bd42');rect(293,ty+7,42,34,'#b18d30');rect(307,ty-23,14,28,'#e9bd42');rect(311,ty-38,6,20,'#e9bd42');rect(314,ty-105+(frame*3)%75,5,15,'#fff2b3');}
+function drawKirby(){rect(0,0,W,H,'#8bd9f4');cloud(80,65,1);cloud(410,100,.8);rect(0,325,W,75,'#53a843');for(let x=0;x<W;x+=65){rect(x,320,35,10,'#a1d45c');rect(x+10,300,12,25,'#4c9a3d')}rect(500,155,90,170,'#6b5137');rect(470,115,145,75,'#397b39');rect(490,135,110,48,'#4a9945');const ky=255-Math.abs(Math.sin(frame*.07))*28;ctx.fillStyle='#f58eb7';ctx.beginPath();ctx.arc(265,ky,34,0,Math.PI*2);ctx.fill();rect(242,ky-8,7,13,'#27324a');rect(280,ky-8,7,13,'#27324a');rect(245,ky+22,18,9,'#d64b64');rect(272,ky+22,18,9,'#d64b64');rect(220,ky+20,17,10,'#e66c9d');rect(295,ky+20,17,10,'#e66c9d');}
+function drawAdventure(){rect(0,0,W,H,'#69c7ef');cloud(70,65,1);cloud(400,90,.8);rect(0,300,W,100,'#e6c16c');rect(0,320,W,80,'#d9a44d');for(let x=0;x<W;x+=80){rect(x,330,50,5,'#f4db93')}for(let x=50;x<640;x+=160){rect(x,255,75,48,'#3a9c48');rect(x+15,230,48,40,'#45b75a')}drawHero('mario',175,215,.95);rect(170,295,62,8,'#e6e8e8');const ax=(240+frame*5)%650;ctx.save();ctx.translate(ax,250);ctx.rotate(frame*.08);rect(-8,-8,16,16,'#b7bfc7');rect(-3,-3,6,6,'#765a3e');ctx.restore();}
+function drawNinja(){rect(0,0,W,H,'#0b1528');ctx.fillStyle='#e9e4c9';ctx.beginPath();ctx.arc(470,90,48,0,Math.PI*2);ctx.fill();rect(0,320,W,80,'#29354b');for(let x=0;x<W;x+=100){rect(x+20,140,65,180,'#263047');rect(x+35,115,35,35,'#36425b')}drawHero('mega',208,218,1);ctx.strokeStyle='#bce9ff';ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(265,270);ctx.lineTo(340,235+Math.sin(frame*.2)*12);ctx.stroke();}
+function drawDK(){rect(0,0,W,H,'#17131c');for(let i=0;i<4;i++){let y=330-i*82;rect(40+i*10,y,560-i*20,12,'#d34a38');rect(40+i*10,y+12,560-i*20,5,'#7c2830')}rect(70,70,55,70,'#874b2b');rect(80,60,40,30,'#a5683c');rect(95,75,8,8,'#fff');rect(112,75,8,8,'#fff');drawHero('mario',300,220,.85);const bx=(160+frame*2.7)%600;ctx.fillStyle='#b77a37';ctx.beginPath();ctx.arc(bx,315,16,0,Math.PI*2);ctx.fill();rect(bx-12,305,24,5,'#e2ad5b');}
+function drawInvaders(){rect(0,0,W,H,'#020509');for(let i=0;i<85;i++)star(i*71%W,i*43%H,1,'#9da9c1');for(let r=0;r<3;r++)for(let c=0;c<8;c++){let x=80+c*65+Math.sin(frame*.02)*22,y=85+r*54+Math.sin(frame*.04)*5;let color=['#e84e6b','#4bd5e7','#e9d45a'][r];rect(x+8,y,24,24,color);rect(x,y+7,40,13,color);rect(x+6,y+24,8,8,color);rect(x+27,y+24,8,8,color);rect(x+10,y+8,5,5,'#fff');rect(x+25,y+8,5,5,'#fff')}rect(290+Math.sin(frame*.04)*160,340,42,18,'#53d87b');rect(307+Math.sin(frame*.04)*160,326,9,14,'#53d87b');for(let i=0;i<3;i++)rect(312+i*4,280+(frame*3+i*50)%55,4,12,'#e7e9ad');}
+function drawSonic(){rect(0,0,W,H,'#53a9ed');cloud(50,65,1);cloud(430,100,.8);for(let i=0;i<5;i++){rect(i*145-(frame*.7%145),250,90,80,'#2b8d4e');rect(i*145+20-(frame*.7%145),220,65,50,'#37a65a')}rect(0,330,W,70,'#9c6233');rect(0,330,W,12,'#e0a14b');for(let x=0;x<W;x+=36)rect(x,350,18,5,'#6d4228');let sx=(frame*4.2)%730-50;drawHero('sonic',sx,205+Math.sin(frame*.08)*7,.9);for(let x of [180,390,550]){ctx.strokeStyle='#ffda45';ctx.lineWidth=6;ctx.beginPath();ctx.ellipse(x,285,10,17,0,0,Math.PI*2);ctx.stroke()}}
+function drawPokemon(){rect(0,0,W,H,'#d9e8f3');rect(0,0,W,255,'#e9f0f6');rect(0,255,W,145,'#6dbb69');rect(35,35,570,190,'#fff');ctx.strokeStyle='#38516a';ctx.lineWidth=4;ctx.strokeRect(35,35,570,190);rect(50,50,540,155,'#f1f4f4');rect(70,165,190,30,'#b9d9a4');rect(390,65,170,30,'#b9d9a4');drawHero('pikachu',135,238,1.05);for(let i=0;i<3;i++){let x=260+(frame*3+i*30)%280;ctx.strokeStyle='#f9df45';ctx.lineWidth=7;ctx.beginPath();ctx.moveTo(x,260);ctx.lineTo(x+15,230);ctx.lineTo(x+4,232);ctx.lineTo(x+27,200);ctx.stroke()}}
+function drawBomber(){rect(0,0,W,H,'#397c43');for(let y=40;y<360;y+=64)for(let x=45;x<610;x+=64){if((x/64+y/64)%2===0)box(x,y,46,46,'#697b82')}for(let y=100;y<340;y+=128)for(let x=110;x<600;x+=128)box(x,y,44,44,'#8a9ba0');drawHero('bomber',145,220,1);const pulse=8+Math.abs(Math.sin(frame*.12))*6;ctx.fillStyle='#20242c';ctx.beginPath();ctx.arc(340,270,18,0,Math.PI*2);ctx.fill();ctx.fillStyle='#df3c36';ctx.beginPath();ctx.arc(340,270,4,0,Math.PI*2);ctx.fill();if(frame%90<35){rect(335,205,10,60,'#ffda54');rect(280,265,120,10,'#ff7c36');rect(335,265,10,75,'#ff7c36');rect(318,220,44,10,'#fff2a3')}}
+function drawNekketsu(){rect(0,0,W,H,'#83c8e6');rect(0,0,W,245,'#a4d6eb');rect(0,245,W,155,'#c5a16c');rect(0,320,W,80,'#8d6e4e');for(let x=0;x<W;x+=80){rect(x,320,50,6,'#e7d8ae')}for(let x=40;x<W;x+=150){rect(x,120,60,125,'#9b795b');rect(x+12,95,38,35,'#bd9b73');rect(x+20,150,8,8,'#252b36')}let kx=180+Math.sin(frame*.07)*40;pixelPerson(kx,240,['#d9aa87','#f3f0e7','#f3f0e7','#333b4a','#282a31'],1,1.5);pixelPerson(kx+120,240,['#d8a27d','#2875c5','#293f86','#30333d','#3a2d2a'],0,1.5);rect(kx+35,282,65,7,'#f5f4ef');}
+function drawDoubleDragon(){rect(0,0,W,H,'#263044');rect(0,0,W,250,'#34465a');for(let x=0;x<W;x+=125){rect(x+15,60,82,190,'#596170');rect(x+25,75,62,70,'#182335');rect(x+30,160,52,90,'#222d40')}rect(0,300,W,100,'#4b4a50');rect(0,300,W,12,'#77747a');for(let x=0;x<W;x+=90){rect(x,335,48,4,'#a4a1a1')}drawHero('mega',150,216,1);drawHero('contra',408,220,.9,true);let fx=245+(frame%42<21?35:5);rect(fx,292,42,8,'#f1c36a');rect(fx+28,286,14,6,'#f1c36a');}
+function drawStreetFighter(){rect(0,0,W,H,'#d8a36d');rect(0,0,W,250,'#d9b17f');rect(0,245,W,155,'#70513f');rect(0,320,W,80,'#453b38');for(let x=0;x<W;x+=80){rect(x,70,5,175,'#865b3e');rect(x+8,80,55,8,'#a8784e')}rect(0,250,W,10,'#f0d5a2');drawHero('ryu',130,208,1.15);drawHero('contra',430,211,.95,true);let hx=260+(frame*4)%190;ctx.fillStyle='#4acbff';ctx.beginPath();ctx.ellipse(hx,278,25,17,0,0,Math.PI*2);ctx.fill();ctx.fillStyle='#e6fbff';ctx.beginPath();ctx.ellipse(hx,278,13,9,0,0,Math.PI*2);ctx.fill();rect(300,90,40,7,'#f0e6d4');text('FIGHT!',320,55,18,'#fff1c2','center');}
+function drawScene(scene){switch(scene){case'mario':drawMario();break;case'tetris':drawTetris();break;case'zelda':drawZelda();break;case'megaman':drawMega();break;case'contra':drawContra();break;case'pacman':drawPac();break;case'doubledragon':drawDoubleDragon();break;case'castlevania':drawCastlevania();break;case'streetfighter':drawStreetFighter();break;case'finalfantasy':drawFinalFantasy();break;case'tank':drawTank();break;case'kirby':drawKirby();break;case'adventure':drawAdventure();break;case'ninja':drawNinja();break;case'donkeykong':drawDK();break;case'invaders':drawInvaders();break;case'sonic':drawSonic();break;case'pokemon':drawPokemon();break;case'bomberman':drawBomber();break;case'nekketsu':drawNekketsu();break;default:drawMario()}}
+function renderGameScene(){frame++;ctx.clearRect(0,0,W,H);drawScene(SONGS[synth.currentSongIndex]?.scene||'mario');requestAnimationFrame(renderGameScene)}
+const vis=document.getElementById('visualizer-canvas'),vctx=vis.getContext('2d');function drawVisualizer(){const w=vis.width,h=vis.height;vctx.clearRect(0,0,w,h);if(synth.analyser&&synth.isPlaying){const a=new Uint8Array(synth.analyser.frequencyBinCount);synth.analyser.getByteFrequencyData(a);const bw=w/a.length;for(let i=0;i<a.length;i++){let bh=a[i]/255*h;vctx.fillStyle=i%2?'#e64d43':'#f4c65c';vctx.fillRect(i*bw,h-bh,Math.max(1,bw-2),bh)}}else{vctx.fillStyle='#657080';vctx.fillRect(0,h/2,w,2)}requestAnimationFrame(drawVisualizer)}
+let activeFilter='all';function renderPlaylist(){const list=document.getElementById('playlist-container'),q=document.getElementById('search-input').value.trim().toLowerCase();list.innerHTML='';let found=0;SONGS.forEach((s,i)=>{const decade=Number(s.year)<1990?'1980':'1990';if(activeFilter!=='all'&&decade!==activeFilter)return;if(q&&!`${s.game} ${s.title} ${s.year}`.toLowerCase().includes(q))return;found++;const row=document.createElement('div');row.className='track'+(i===synth.currentSongIndex?' selected':'');row.innerHTML=`<div class="track-no">${i===synth.currentSongIndex?'▶':String(i+1).padStart(2,'0')}</div><div class="track-copy"><strong></strong><span></span></div><span class="track-year">${s.year}</span>`;row.querySelector('strong').textContent=s.game;row.querySelector('span').textContent=s.title;row.addEventListener('click',()=>synth.playSong(i));list.appendChild(row)});if(!found)list.innerHTML='<div class="empty">找不到符合的曲目</div>'}
+function updateUIState(){const s=SONGS[synth.currentSongIndex];document.getElementById('track-title').textContent=s.game;document.getElementById('track-subtitle').textContent=s.title;document.getElementById('track-year').textContent=s.year;document.getElementById('now-playing-title').textContent=s.game+' — '+s.title;document.getElementById('mobile-title').textContent=s.game;document.getElementById('mobile-subtitle').textContent=s.title;document.getElementById('play-icon').textContent=synth.isPlaying?'Ⅱ':'▶';document.getElementById('play-text').textContent=synth.isPlaying?'PAUSE':'PLAY';document.getElementById('mobile-play').textContent=synth.isPlaying?'Ⅱ':'▶';document.getElementById('led').classList.toggle('on',synth.isPlaying);document.getElementById('audio-status').textContent=synth.isPlaying?'PLAYING / 播放中':'PAUSED / 已暫停';document.getElementById('play-state').textContent=synth.isPlaying?'8-BIT AUDIO　•　'+s.tempo+' BPM':'播放已暫停';document.getElementById('scene-tag').textContent=s.game.toUpperCase()+'　/　'+s.year+'　/　PIXEL WORLD';renderPlaylist()}
+// Loop is enabled by default. When disabled, move to next track at end.
+document.getElementById('btn-play').onclick=()=>synth.isPlaying?synth.stop():synth.playSong(synth.currentSongIndex);
+document.getElementById('mobile-play').onclick=()=>synth.isPlaying?synth.stop():synth.playSong(synth.currentSongIndex);
+document.getElementById('btn-next').onclick=()=>synth.next();document.getElementById('mobile-next').onclick=()=>synth.next();document.getElementById('btn-prev').onclick=()=>synth.prev();document.getElementById('mobile-prev').onclick=()=>synth.prev();
+document.getElementById('btn-loop').onclick=()=>{synth.isLooping=!synth.isLooping;document.getElementById('btn-loop').classList.toggle('active',synth.isLooping);document.getElementById('btn-loop').title=synth.isLooping?'單曲循環：開':'單曲循環：關';showToast(synth.isLooping?'單曲循環已開啟':'單曲循環已關閉')};
+document.getElementById('volume-slider').oninput=e=>{const v=Number(e.target.value);synth.setVolume(v);document.getElementById('volume-val').textContent=Math.round(v*100)+'%';if(v>0&&synth.isMuted)synth.isMuted=false};
+document.getElementById('search-input').oninput=renderPlaylist;document.querySelectorAll('.filter').forEach(b=>b.onclick=()=>{activeFilter=b.dataset.filter;document.querySelectorAll('.filter').forEach(x=>x.classList.toggle('selected',x===b));renderPlaylist()});
+let toastTimer;function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),1500)}
+// Canvas adapts sharply to device pixel ratio while keeping pixel edges crisp.
+function resizeCanvas(){const dpr=Math.min(window.devicePixelRatio||1,2);canvas.width=640*dpr;canvas.height=400*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);ctx.imageSmoothingEnabled=false}window.addEventListener('resize',resizeCanvas);resizeCanvas();
+renderPlaylist();updateUIState();renderGameScene();drawVisualizer();
+</script></body></html>
